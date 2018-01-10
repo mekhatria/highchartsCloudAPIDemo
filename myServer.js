@@ -8,16 +8,16 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var path = require('path');
 
-//mongoose data base
+//Mongoose database
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-//set port
+//Set port
 var port = process.env.PORT || 3000;
 
-//to cleat screen
+//To cleat screen
 var clear = require('clear');
 
-//set up an empty chart sturcture
+//Set up an empty chart structure
 var dataToSendObject = {
   data: {
     template: {},
@@ -33,8 +33,8 @@ var chartID; //Chart id returned from Highchart cloud
 var teamID = 10000264; //HCCloud team id
 var APIKey = 'f297d76ee7a6451cb4c72b6f1f5ee75f'; //HCCloud API key
 var DBlogin = 'mustapha',
-  DBpwd = 'letMeIn2018'; // Mongodb's username and password
-var DBLink = '@ds247077.mlab.com:47077/hcclouddb'; //Mongodb database link
+  DBpwd = 'letMeIn2018'; // MongoBD's username and password
+var DBLink = '@ds247077.mlab.com:47077/hcclouddb'; //MongoDB database link
 var msgCodeOk = 200;
 
 //           *** Start ***
@@ -44,8 +44,8 @@ console.log(' *****               *** ');
 
 app.use(cors());
 
-//to read data from the request
-app.use(bodyParser.json()); // support json encoded bodies
+//To read data from the request
+app.use(bodyParser.json()); // Support JSON encoded bodies
 app.use(bodyParser.json({
   type: 'application/json'
 }))
@@ -55,7 +55,7 @@ app.use(bodyParser.urlencoded({
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 
-//read from the dataBase
+//Read from the database
 mongoose.connect('mongodb://' + DBlogin + ':' + DBpwd + DBLink);
 
 var db = mongoose.connection;
@@ -83,7 +83,7 @@ var Chart = mongoose.model('Chart', chartSchema);
 //Read data from the data base
 
 app.get('/readDataFromDB', function(reqUp, resUp) {
-  Chart.find({}, function(err, data) { //res represents the data fetched from the db
+  Chart.find({}, function(err, data) { //Data represents the data fetched from the DB
     if (err) {
       return resUp.send({
         status: err
@@ -140,7 +140,7 @@ app.get('/sendToHCCloud', function(reqUp, resUp) {
 
 
 //Duplicate chart
-app.get('/dublicateChart', function(reqUp, resUp) {
+app.get('/duplicateChart', function(reqUp, resUp) {
 
   var setChart = {
 

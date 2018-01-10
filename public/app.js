@@ -50,24 +50,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
   });
 
-  //Dublicate chart
-  $("#dublicateChart").click(function() {
+  //duplicate chart
+  $("#duplicateChart").click(function() {
 
     $.ajax({
       type: "GET",
-      url: "http://localhost:3000/dublicateChart",
+      url: "http://localhost:3000/duplicateChart",
 
       dataType: 'json',
       contentType: 'application/json',
       success: function(res) {
         //Show status
         console.log(res);
-        showStatus(res.status, '#dublicateChartLabel');
+        showStatus(res.status, '#duplicateChartLabel');
       },
       error: function() {
         //Show status
         console.log(res);
-        showStatus(res.status, '#dublicateChartLabel');
+        showStatus(res.status, '#duplicateChartLabel');
       }
     });
 

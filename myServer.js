@@ -30,11 +30,38 @@ var dataToSendObject = {
   }
 };
 var chartID; //Chart id returned from Highchart cloud
-var teamID = 10000264; //HCCloud team id
-var APIKey = 'f297d76ee7a6451cb4c72b6f1f5ee75f'; //HCCloud API key
-var DBlogin = 'mustapha',
-  DBpwd = 'letMeIn2018'; // MongoBD's username and password
-var DBLink = '@ds247077.mlab.com:47077/hcclouddb'; //MongoDB database link
+
+//config-json to store the passwords, API key, etc
+var config=require('config-json');
+config.load('./data.json')
+
+//Retrieve data from the data.json file
+var teamID = config.get('teamID'); //HCCloud team id
+var APIKey = config.get('APIKey'); //HCCloud API key
+var DBlogin = config.get('dbCredentials', 'DBlogin'),
+  DBpwd = config.get('dbCredentials', 'DBpwd');// MongoBD's username and password
+var DBLink = config.get('BLink');//MongoDB database link
+
+/*{
+    //HCCloud team id    
+    "teamID" : 123456, 
+    
+    //HCCloud API key    
+    "APIKey" : '123456', 
+    
+    // MongoBD's username and password    
+    "dbCredentials":{
+        "DBlogin" : 'name',
+        "DBpwd" : '123456', 
+    },
+    //MongoDB database link
+    "BLink" : '123x123x', 
+}*/
+
+
+
+
+
 var msgCodeOk = 200;
 
 //           *** Start ***

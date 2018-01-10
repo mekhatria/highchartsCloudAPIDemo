@@ -5,12 +5,12 @@ Create a data.json and add the right credentials:
 ```json
 {  
     "teamID" : 123456,   
-    "APIKey" : '123456',  
+    "APIKey" : "123456abcd",  
     "dbCredentials":{
-        "DBlogin" : 'name',
-        "DBpwd" : '123456' 
+        "DBlogin" : name,
+        "DBpwd" : "123456abcd" 
     },
-    "BLink" : '123x123x' 
+    "BLink" : "12345abcd 
 }
 ```
 

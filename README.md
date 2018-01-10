@@ -3,20 +3,14 @@ Open a command line and launch ``npm install``
 
 Create a data.json and add the right credentials:
 ```json
-{
-    //HCCloud team id    
-    "teamID" : 123456, 
-    
-    //HCCloud API key    
-    "APIKey" : '123456', 
-    
-    // MongoBD's username and password    
+{  
+    "teamID" : 123456,   
+    "APIKey" : '123456',  
     "dbCredentials":{
         "DBlogin" : 'name',
-        "DBpwd" : '123456', 
+        "DBpwd" : '123456' 
     },
-    //MongoDB database link
-    "BLink" : '123x123x', 
+    "BLink" : '123x123x' 
 }
 ```
 

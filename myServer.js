@@ -58,10 +58,6 @@ var DBLink = config.get('BLink');//MongoDB database link
     "BLink" : '123x123x', 
 }*/
 
-
-
-
-
 var msgCodeOk = 200;
 
 //           *** Start ***

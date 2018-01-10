@@ -1,10 +1,23 @@
 ## Highcharts cloud API demo
 Open a command line and launch ``npm install``
 
-Be sure to add the right credentials such as the Highcharts API key and team id:
-```javascript
-var teamID = 123456; //HCCloud team id
-var APIKey = '123456789'; //HCCloud API key 
+Create a data.json and add the right credentials:
+```json
+{
+    //HCCloud team id    
+    "teamID" : 123456, 
+    
+    //HCCloud API key    
+    "APIKey" : '123456', 
+    
+    // MongoBD's username and password    
+    "dbCredentials":{
+        "DBlogin" : 'name',
+        "DBpwd" : '123456', 
+    },
+    //MongoDB database link
+    "BLink" : '123x123x', 
+}
 ```
 
 Start the server ``node myServer.js``

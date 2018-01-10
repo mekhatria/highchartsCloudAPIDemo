@@ -7,7 +7,7 @@ Create a data.json and add the right credentials:
     "teamID" : 123456,   
     "APIKey" : "123456abcd",  
     "dbCredentials":{
-        "DBlogin" : name,
+        "DBlogin" : "name",
         "DBpwd" : "123456abcd" 
     },
     "BLink" : "12345abcd 

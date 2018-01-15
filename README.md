@@ -1,10 +1,17 @@
 ## Highcharts cloud API demo
 Open a command line and launch ``npm install``
 
-Be sure to add the right credentials such as the Highcharts API key and team id:
-```javascript
-var teamID = 123456; //HCCloud team id
-var APIKey = '123456789'; //HCCloud API key 
+Create a data.json and add the right credentials:
+```json
+{  
+    "teamID" : 123456,   
+    "APIKey" : "123456abcd",  
+    "dbCredentials":{
+        "DBlogin" : "name",
+        "DBpwd" : "123456abcd" 
+    },
+    "BLink" : "12345abcd 
+}
 ```
 
 Start the server ``node myServer.js``

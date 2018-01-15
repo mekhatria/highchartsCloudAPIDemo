@@ -2,8 +2,6 @@
 var express = require('express');
 var app = express();
 var request = require('request');
-//body-parser
-var bodyParser = require('body-parser');
 
 var cors = require('cors');
 var path = require('path');
@@ -66,15 +64,6 @@ console.log(' ***** Start session *** ');
 console.log(' *****               *** ');
 
 app.use(cors());
-
-//To read data from the request
-app.use(bodyParser.json()); // Support JSON encoded bodies
-app.use(bodyParser.json({
-  type: 'application/json'
-}))
-app.use(bodyParser.urlencoded({
-  extended: true
-})); // support encoded bodies
 
 app.use('/', express.static(path.join(__dirname, 'public')));
 

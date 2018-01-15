@@ -1,21 +1,29 @@
-//express
+//express to set the server
 var express = require('express');
 var app = express();
+//request to communicate with the highcharts cloud
 var request = require('request');
-
+//cors to send/receive data inJ SON fomrat
 var cors = require('cors');
+//to set the public path where the index.html is saved
 var path = require('path');
 
-//Mongoose database
+//config-json to store the passwords, API key, etc
+var config=require('config-json');
+
+//Mongoose to communicate with the database
 var mongoose = require('mongoose');
+
+//set the data structure
 var Schema = mongoose.Schema;
-//Set port
+
+//Set the server port (to listen) 
 var port = process.env.PORT || 3000;
 
 //To cleat screen
 var clear = require('clear');
 
-//Set up an empty chart structure
+//Set up an empty chart structure, where I will save the data received from the database
 var dataToSendObject = {
   data: {
     template: {},
@@ -29,9 +37,8 @@ var dataToSendObject = {
 };
 var chartID; //Chart id returned from Highchart cloud
 
-//config-json to store the passwords, API key, etc
-var config=require('config-json');
-config.load('./data.json')
+
+config.load('./data.json')//Load the logins and passwords
 
 //Retrieve data from the data.json file
 var teamID = config.get('teamID'); //HCCloud team id
@@ -62,9 +69,8 @@ var msgCodeOk = 200;
 clear(); //clear screen
 console.log(' ***** Start session *** ');
 console.log(' *****               *** ');
-
+app.listen(port);
 app.use(cors());
-
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 //Read from the database
@@ -119,7 +125,7 @@ app.get('/readDataFromDB', function(reqUp, resUp) {
 //create a chart on HCCloud
 app.get('/sendToHCCloud', function(reqUp, resUp) {
 
-  //Set up char
+  //Set up the request configuration
   var setChart = {
 
     url: 'https://cloud-api.highcharts.com/team/' + teamID + '/chart/',
@@ -211,4 +217,3 @@ app.get('/deleteChart', function(reqUp, resUp) {
 
 });
 
-app.listen(port);

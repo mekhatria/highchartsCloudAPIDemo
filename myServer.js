@@ -63,13 +63,8 @@ var DBLink = config.get('BLink');//MongoDB database link
     "BLink" : '123x123x', 
 }*/
 
-var msgCodeOk = 200;
+var msgCodeOk = 200;//to replace the magic number 200
 
-//           *** Start ***
-clear(); //clear screen
-console.log(' ***** Start session *** ');
-console.log(' *****               *** ');
-app.listen(port);
 app.use(cors());
 app.use('/', express.static(path.join(__dirname, 'public')));
 
@@ -217,3 +212,8 @@ app.get('/deleteChart', function(reqUp, resUp) {
 
 });
 
+//           *** Start ***
+clear(); //clear screen
+console.log(' ***** Start session *** ');
+console.log(' *****               *** ');
+app.listen(port);

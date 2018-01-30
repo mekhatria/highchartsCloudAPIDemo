@@ -38,9 +38,9 @@ var dataToSendObject = {
 var chartID; //Chart id returned from Highchart cloud
 
 
-config.load('./data.json')//Load the logins and passwords
+config.load('./config.json')//Load the logins and passwords
 
-//Retrieve data from the data.json file
+//Retrieve data from the config.json file
 var teamID = config.get('teamID'); //HCCloud team id
 var APIKey = config.get('APIKey'); //HCCloud API key
 var DBlogin = config.get('dbCredentials', 'DBlogin'),
